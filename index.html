@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主頁面</title>
+<style>
+body {
+display: flex;
+justify-content: center;
+background-color: rgb(119 157 193);
+}
+.a{
+position: relative;
+top: 100px;
+width: 1000px;
+height: 600px;
+background-image: url("134.jpg");
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
+.b,
+.c,
+.d,
+.e{
+position: absolute;
+width: 1000px;
+height: 600px;
+/* 设置阴影 */
+filter: drop-shadow(4px 4px 12px rgba(0,0,0,.5));
+background-size: cover;
+opacity: .7;
+transition: .5s;
+}
+.b::after,
+.c::after,
+.d::after,
+.e::after{
+content: "";
+position: absolute;
+width: 1000px;
+height: 600px;
+background-image: url("134.jpg");
+}
+.b{
+left: -400px;
+transform: rotateZ(100deg);
+overflow: hidden;
+}
+.b::after{
+transform: rotateZ(-100deg);
+}
+
+    .c{
+        left: -400px;
+        transform: rotateZ(-100deg);
+        overflow: hidden;
+    }
+    .c::after{
+        transform: rotateZ(100deg);
+    }
+
+    .d{
+        right: -400px;
+        transform: rotateZ(105deg);
+        overflow: hidden;
+    }
+    .d::after{
+        transform: rotateZ(-105deg);
+    }
+
+    .e{
+        right: -400px;
+        transform: rotateZ(-100deg);
+        overflow: hidden;
+    }
+    .e::after{
+        transform: rotateZ(100deg);
+    }
+    .f{
+        opacity: 0;
+        font: 900 50px '';
+        /* 设置字体间距 */
+        letter-spacing: 10px;
+        color: rgb(60,60,70);
+        transition: .5s;
+    }
+    /* 设置动画 */
+    .a:hover .b{
+        left: -550px;
+    }
+    .a:hover .c{
+        left: -600px;
+    }
+    .a:hover .d{
+        right: -550px;
+    }
+    .a:hover .e{
+        right: -610px;
+    }
+    .a:hover .f{
+        opacity: 1;
+    }
+    .new-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 600px;
+    }
+    .text-overlay {
+        background-color: rgba(0, 0, 0, 0); /* 背景色改为透明 */
+    color: rgba(255, 204, 0, 0.6); /* 字体颜色透明度改为60% */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 100px;
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="a">
+<div class="b"></div>
+<div class="c"></div>
+<div class="d"></div>
+<div class="e"></div>
+<p class="f">杭州亚运</p>
+</div>
+<button class="button">点击跳转</button>
+<script>
+var element = document.querySelector('.a');
+element.addEventListener('click', function() {
+
+var newImage = document.createElement('img');
+newImage.src = '136.jpg';
+newImage.classList.add('new-image');
+
+       
+        document.body.appendChild(newImage);
+        var textOverlay = document.createElement('div');
+        textOverlay.innerHTML = "杭州第19届亚运会（The 19th Asian Games Hangzhou），又称“2022年杭州亚运会”，是继1990年北京亚运会、2010年广州亚运会之后，中国第三次举办亚洲最高规格的国际综合性体育赛事。2022年7月19日，亚洲奥林匹克理事会宣布原定于2022年9月10日至25日举行的杭州2022年第19届亚运会于2023年9月23日至10月8日举行，赛事名称和标志保持不变。 杭州亚运会竞赛项目设置为：40个大项，61个分项，481个小项。40个竞赛大项包括31个奥运项目和9个非奥运项目，同时，在保持40个大项目不变的前提下，增设电子竞技、霹雳舞两个竞赛项目。杭州亚运会诞生482块金牌。 杭州亚运会以“中国新时代·杭州新亚运”为定位、“中国特色、亚洲风采、精彩纷呈”为目标，秉持“绿色、智能、节俭、文明”的办会理念，坚持“杭州为主、全省共享”的办赛原则。 2023年4月25日起，为期三天的杭州亚运会代表团团长大会在杭州举行，亚洲45个国家和地区的奥委会代表参会 。 6月15日，杭州亚运会倒计时100天，亚运会火种在杭州良渚古城遗址公园大莫角山成功采集到 ；同日，杭州亚运会奖牌在“湖山”发布 。6月29日，杭州亚运会第二次世界媒体大会成果发布在杭州国际博览中心召开。 7月，杭州亚运会运动员报名圆满结束，亚奥理事会45个国家（地区）奥委会均已报名，运动员人数达到12500多名，报名规模创历届之最。";
+        textOverlay.classList.add('text-overlay');
+
+     
+        document.body.appendChild(textOverlay);
+    });
+
+    var button = document.querySelector('.button');
+    button.addEventListener('click', function() {
+        window.location.href = "b.html"; 
+    });
+</script>
+</body>
+</html>
